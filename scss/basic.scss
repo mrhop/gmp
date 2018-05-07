@@ -1,0 +1,96 @@
+$icon-font-path: "../assets/fonts/bootstrap/" !default;
+$brand-primary: #0771bb !default;
+$navbar-default-color: #000 !default;
+$navbar-default-link-color: #000 !default;
+$navbar-default-link-active-color: #0771bb !default;
+$navbar-default-link-hover-color: #0771bb !default;
+$navbar-default-link-active-bg: #dcdcdc !default;
+$navbar-default-link-hover-bg: #dcdcdc !default;
+
+// Navbar brand label
+$navbar-default-brand-color: #0771bb !default;
+@import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+.navbar.navbar-default {
+  box-shadow: 1px 1px 10px #aaa;
+  border-radius: 0;
+  min-height: 90px;
+  .container {
+    padding-bottom: 0px;
+    a {
+      text-transform: uppercase;
+      line-height: 50px;
+      padding: 20px 25px;
+      letter-spacing: 1px;
+      font-weight: bold;
+      font-size: 17px;
+      &:hover {
+        text-decoration: underline;
+      }
+      &.navbar-brand {
+        line-height: normal;
+        height: auto;
+        padding: 0;
+      }
+    }
+
+  }
+  .navbar-toggle {
+    border-color: #aaa;
+    vertical-align: middle;
+    margin-top: 30px;
+  }
+}
+
+.container, .container-fluid {
+  text-align: center;
+  padding-bottom: 50px;
+  .title {
+    text-transform: uppercase;
+    margin-top: 40px;
+  }
+
+}
+
+div.top-right {
+  position: absolute;
+  right: 0;
+  top: 0;
+  &.language {
+    a {
+      border-radius: 0;
+      &:hover {
+        background-color: $navbar-default-link-hover-bg;
+      }
+    }
+  }
+}
+
+#about-us {
+  .first-container {
+    margin-top: 90px;
+  }
+  .second-container {
+    background-image: url("../assets/images/second-container-bg.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: 100% auto;
+    padding-bottom: 0px;
+    div.container{
+      padding-top: 30px;
+      .col{
+        >div{
+          margin: 20px 20px;
+          background: #fff;
+          height: 500px;
+          padding: 30px;
+        }
+        @media (min-width: $screen-md-min) {
+          &:nth-child(4){
+            margin-left: 16.5%;
+          }
+        }
+      }
+    }
+  }
+}
