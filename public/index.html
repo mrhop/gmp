@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TEF</title>
+    <link href="css/flexslider/flexslider.css" rel="stylesheet" type="text/css"/>
     <link href="css/basic.css" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="js/basic.browserify.js"></script>
     <script type="text/javascript" src="js/dev/holder.min.js"></script>
 </head>
-<body id="about-us">
+<body id="index">
 <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
@@ -21,61 +22,76 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                <img src="holder.js/300x90?bg=0771bb">
+                <img src="assets/images/common/logo.png">
             </a>
         </div>
 
         <!-- Collect the nav links, forms, and other content for toggling -->
-        <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">About Us</a></li>
-                <li><a href="#">Career</a></li>
-                <li><a href="#">Partners</a></li>
+                <li class="active"><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Location</a></li>
+                <li><a href="#">Value</a></li>
+                <li><a href="#">Layouts</a></li>
+                <li><a href="#">Design</a></li>
                 <li><a href="#">Contact</a></li>
             </ul>
         </div><!-- /.navbar-collapse -->
     </div><!-- /.container-fluid -->
     <div class="top-right language">
-        <div class="btn-group btn-group-xs" role="group">
-            <a class="btn btn-default">EN</a>
-            <a class="btn btn-default">中文</a>
-        </div>
+        <a>English</a>
+        <a>Mongolian</a>
     </div>
 </nav>
-<div class="container first-container">
-    <p class="h1 title">Title about us</p>
-    <p class="h3">Comment-->We invest in companies with high value-add technologies that significantly increase
-        industrial productivity and efficiency, enable new applications and manufacturing methods and drive innovation
-        for industrial products and solutions.</p>
-</div>
-<div class="container-fluid second-container">
-    <div class="container">
-        <div class="col-md-4 col">
-            <div>
-                col content
-            </div>
-        </div>
-        <div class="col-md-4 col">
-            <div>
-                col content
-            </div>
-        </div>
-        <div class="col-md-4 col">
-            <div>
-                col content
-            </div>
-        </div>
-            <div class="col-md-4 col">
-                <div>
-                    col content
+<section class="top-slider ">
+    <div class="flexslider">
+        <ul class="slides">
+            <li class="item row">
+                <div class="caption">
+                    <h1>GERMAN RESIDENCE</h1>
+                    <p>GERMAN BY QUALITY</p>
                 </div>
-            </div>
-            <div class="col-md-4 col">
-                <div>
-                    col content
-                </div>
-            </div>
+                <img src="assets/images/common/slider/A-1.jpg">
+            </li>
+            <li class="item row">
+                <img src="assets/images/common/slider/A-2.jpg">
+            </li>
+            <li class="item row">
+                <img src="assets/images/common/slider/A-3.jpg">
+            </li>
+            <li class="item row">
+                <img src="assets/images/common/slider/A-4.jpg">
+            </li>
+            <li class="item row">
+                <img src="assets/images/common/slider/A-5.jpg">
+            </li>
+            <li class="item row">
+                <img src="assets/images/common/slider/A-6.jpg">
+            </li>
+        </ul>
     </div>
-</div>
+</section>
+
+<section class="footer">
+    <img class="logo-bottom" src="assets/images/common/logo.png"/>
+    <div class="contact-bottom">
+        <div class="row container">
+            <div class="col col-sm-4">
+                <img src="assets/images/common/footer/1.png">
+                <span>German Residence, Zaisan toiruu, 11th khoroo,
+                    Khan-Uul district, Ulaanbaatar, Mongolia</span>
+            </div>
+            <div class="col col-sm-4">
+                <img src="assets/images/common/footer/2.png">
+                <span>+976-70112028 +976-88108482 +976-88108581</span></div>
+            <div class="col col-sm-4">
+                <img src="assets/images/common/footer/3.png">
+                <span>sales@german-mongol-properties.com</span>
+            </div>
+        </div>
+        <p>Copyright©2018 German Mongol Properties (GMP). All Rights Reserved.</p>
+    </div>
+</section>
 </body>
 </html>

@@ -1,50 +1,28 @@
 $icon-font-path: "../assets/fonts/bootstrap/" !default;
-$brand-primary: #0771bb !default;
-$navbar-default-color: #000 !default;
-$navbar-default-link-color: #000 !default;
-$navbar-default-link-active-color: #0771bb !default;
-$navbar-default-link-hover-color: #0771bb !default;
-$navbar-default-link-active-bg: #dcdcdc !default;
-$navbar-default-link-hover-bg: #dcdcdc !default;
-
-// Navbar brand label
-$navbar-default-brand-color: #0771bb !default;
+$brand-primary: #811b22 !default;
+$title-color: #231f20 !default;
+$text-color: #58595b !default;
+$link-color: $title-color !default;
+$link-hover-color: #ae1f23 !default;
+// Navbar links
+$navbar-default-link-color: $title-color !default;
+$navbar-default-link-hover-color: $link-hover-color !default;
+$navbar-default-link-active-color: $navbar-default-link-hover-color !default;
+$navbar-default-link-active-bg: #fff !default;
+$navbar-default-link-disabled-color: #ccc !default;
+$navbar-default-link-disabled-bg: transparent !default;
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+@import "font";
 
-.navbar.navbar-default {
-  box-shadow: 1px 1px 10px #aaa;
-  border-radius: 0;
-  min-height: 90px;
-  .container {
-    padding-bottom: 0px;
-    a {
-      text-transform: uppercase;
-      line-height: 50px;
-      padding: 20px 25px;
-      letter-spacing: 1px;
-      font-weight: bold;
-      font-size: 17px;
-      &:hover {
-        text-decoration: underline;
-      }
-      &.navbar-brand {
-        line-height: normal;
-        height: auto;
-        padding: 0;
-      }
-    }
-
-  }
-  .navbar-toggle {
-    border-color: #aaa;
-    vertical-align: middle;
-    margin-top: 30px;
-  }
+body {
+  font-family: "Axia Regular";
+  font-weight: normal;
 }
 
 .container, .container-fluid {
   text-align: center;
   padding-bottom: 50px;
+  margin: 0 auto;
   .title {
     text-transform: uppercase;
     margin-top: 40px;
@@ -52,43 +30,148 @@ $navbar-default-brand-color: #0771bb !default;
 
 }
 
-div.top-right {
-  position: absolute;
-  right: 0;
-  top: 0;
-  &.language {
-    a {
-      border-radius: 0;
-      &:hover {
-        background-color: $navbar-default-link-hover-bg;
+.navbar.navbar-default {
+  box-shadow: 1px 1px 10px #aaa;
+  border-radius: 0;
+  min-height: 90px;
+  .container {
+    padding: 15px 0 2px;
+    .navbar-header {
+      float: none;
+      margin: 0;
+      .navbar-brand {
+        height: auto;
+        padding: 0;
+        margin-left: 0px;
+        img {
+          height: 50px;
+        }
+      }
+    }
+    .navbar-nav {
+      font-size: 1.5rem;
+      margin-left: 0;
+      margin-right: 0;
+      li {
+        padding: 10px 15px 0;
+        &:first-child {
+          padding-left: 0;
+          @media(max-width: $screen-sm) {
+            padding-left: 15px;
+          }
+        }
+        a {
+          padding: 0;
+          border-bottom: 2px solid transparent;
+          text-transform: uppercase;
+          &:hover {
+            border-bottom-color: $brand-primary;
+          }
+        }
+        &.active {
+          a {
+            border-bottom-color: $brand-primary;
+          }
+        }
+      }
+    }
+  }
+  .navbar-toggle {
+    border-color: #aaa;
+    vertical-align: middle;
+    margin-top: 30px;
+  }
+  div.top-right {
+    position: absolute;
+    right: 10px;
+    top: 40px;
+    font-size: 1rem;
+    &.language {
+      a {
+        margin-right: 10px;
+        cursor: pointer;
       }
     }
   }
 }
 
-#about-us {
-  .first-container {
-    margin-top: 90px;
-  }
-  .second-container {
-    background-image: url("../assets/images/second-container-bg.jpg");
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-size: 100% auto;
-    padding-bottom: 0px;
-    div.container{
-      padding-top: 30px;
-      .col{
-        >div{
-          margin: 20px 20px;
-          background: #fff;
-          height: 500px;
-          padding: 30px;
-        }
-        @media (min-width: $screen-md-min) {
-          &:nth-child(4){
-            margin-left: 16.5%;
+.top-slider {
+  .flexslider {
+    margin-top: 100px;
+    @media (max-width: $screen-sm) {
+      margin-top: 90px;
+    }
+    padding: 0;
+    border: 0;
+    .slides {
+      li {
+        position: relative;
+        .caption {
+          position: absolute;
+          top: 100%;
+          margin-top: -150px;
+          text-transform: uppercase;
+          width: 100%;
+          text-align: center;
+          color: #fff;
+          h1 {
+            font-family: "AxiaBlack Regular";
+            letter-spacing: .5rem;
+            font-size: 5rem;
+
           }
+          p {
+            letter-spacing: .2rem;
+            font-family: "AxiaLight Regular";
+          }
+        }
+      }
+    }
+  }
+  .flex-direction-nav {
+    a {
+      opacity: .7;
+      height: 50px;
+      width: 25px;
+      &:before {
+        content: '';
+      }
+      &.flex-prev {
+        background: url("../assets/images/common/slider/left.png");
+        left: 0;
+      }
+      &.flex-next {
+        background: url("../assets/images/common/slider/right.png");
+        right: 0;
+      }
+    }
+  }
+}
+
+.footer {
+  text-align: center;
+  img.logo-bottom {
+    height: 35px;
+    display: inline-block;
+    margin: 15px auto;
+  }
+  .contact-bottom {
+    background: #414042;
+    padding: 30px 0;
+    font-size: .8rem;
+    font-family: $font-family-sans-serif;
+    color: #878788;
+    .row {
+      padding: 20px 0;
+      margin-bottom: 20px;
+      border-bottom: 1px solid #878788;
+      .col {
+        display: flex;
+        text-align: left;
+        align-items: center;
+        img {
+          width: 25px;
+          margin-right: 8px;
         }
       }
     }
