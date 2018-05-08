@@ -35,7 +35,8 @@ body {
   border-radius: 0;
   min-height: 90px;
   .container {
-    padding: 15px 0 2px;
+    padding-top: 15px;
+    padding-bottom: 2px;
     .navbar-header {
       float: none;
       margin: 0;
@@ -52,7 +53,7 @@ body {
       font-size: 1.5rem;
       margin-left: 0;
       margin-right: 0;
-      li {
+      > li {
         padding: 10px 15px 0;
         &:first-child {
           padding-left: 0;
@@ -74,6 +75,33 @@ body {
           }
         }
       }
+      ul.dropdown-menu {
+        background: transparentize($title-color, .2);
+        li {
+          a {
+            color: #ccc;
+            font-size: 1.1rem;
+            letter-spacing: .1rem;
+            font-weight: normal;
+            border-bottom: 1px solid transparent;
+            &:hover {
+              color: #fff;
+              background: transparent;
+              border-bottom: 1px solid #fff;
+            }
+          }
+          margin-bottom: 5px;
+          &.active {
+            a {
+              background: transparent;
+              color: #fff;
+              border-bottom: 1px solid #fff;
+            }
+          }
+        }
+        margin-top: 2px;
+        padding: 10px 15px 2px;
+      }
     }
   }
   .navbar-toggle {
@@ -85,6 +113,9 @@ body {
     position: absolute;
     right: 10px;
     top: 40px;
+    @media (max-width: $screen-sm) {
+      top: 20px;
+    }
     font-size: 1rem;
     &.language {
       a {
@@ -98,6 +129,7 @@ body {
 .top-slider {
   .flexslider {
     margin-top: 100px;
+    margin-bottom: 0;
     @media (max-width: $screen-sm) {
       margin-top: 90px;
     }
@@ -148,6 +180,57 @@ body {
   }
 }
 
+.breadcrumb {
+  height: 50px;
+  border-radius: 0;
+  margin-bottom: 30px;
+  border-bottom: 1px solid $text-color;
+  text-align: left;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 3px;
+  font-family: "AxiaLight Regular";
+  p.container {
+    padding-bottom: 0;
+    text-align: left;
+  }
+}
+
+.content-section {
+  font-family: "AxiaLight Regular";
+  text-align: left;
+  .section-title {
+    position: relative;
+    color: $title-color;
+    display: inline-block;
+    margin-bottom: 40px;
+    &:after {
+      content: "";
+      width: 100px;
+      height: 40px;
+      top: 0;
+      right: 0;
+      margin-top: 0px;
+      margin-right: -120px;
+      position: absolute;
+      background-repeat: no-repeat;
+      background-image: url("../assets/images/common/section-title-after.png");
+    }
+  }
+  p.content {
+    font-size: 1.5rem;
+    line-height: 1.8;
+    b {
+      color: $link-hover-color;
+      font-size: 1.6rem;
+      font-weight: normal;
+    }
+  }
+  .sub-title {
+    font-family: "Axia Regular";
+  }
+}
+
 .footer {
   text-align: center;
   img.logo-bottom {
@@ -173,6 +256,200 @@ body {
           width: 25px;
           margin-right: 8px;
         }
+      }
+    }
+  }
+}
+
+body#location-map {
+  .content-section {
+    img {
+      display: block;
+      width: 100%;
+      margin-bottom: 20px;
+      border: 1px solid #bbb;
+    }
+  }
+}
+
+body#location-photos, body#value-brands {
+  .content-section {
+    font-family: "AxiaLight Regular";
+    &.section1, &.section2 {
+      .col {
+        position: relative;
+        padding: 0 8px;
+        img {
+          width: 100%;
+        }
+        p {
+          color: #fff;
+        }
+      }
+    }
+    &.section1 {
+      .col {
+        p {
+          padding: 5px 0;
+          margin-bottom: 15px;
+          text-align: center;
+          color: #fff;
+          background: $text-color;
+        }
+      }
+    }
+  }
+}
+
+body#location-photos {
+  .content-section.section2 {
+    .col {
+      position: relative;
+      padding: 0 8px;
+      img {
+        width: 100%;
+      }
+      p {
+        color: #fff;
+      }
+    }
+    &.section1 {
+      .col {
+        p {
+          padding: 5px 0;
+          margin-bottom: 15px;
+          text-align: center;
+          color: #fff;
+          background: $text-color;
+        }
+      }
+    }
+    &.section2 {
+      .col {
+        margin-bottom: 15px;
+        p {
+          display: flex;
+          align-items: center;
+          position: absolute;
+          bottom: 0;
+          margin-bottom: 0;
+          left: 8px;
+          right: 8px;
+          padding: 10px 10px 10px 20px;
+          text-align: left;
+          color: #fff;
+          background: transparentize($text-color, .3);
+          img {
+            height: 34px;
+            width: auto;
+            margin-right: 10px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+body#value-brands {
+  .content-section.section1 {
+    .col {
+      text-align: center;
+      img {
+        width: 80%;
+        margin-bottom: 10px;
+      }
+      p {
+        padding: 10px 0;
+      }
+    }
+  }
+}
+
+body#design-type1, body#design-type2, body#design-type3 {
+  .content-section {
+    font-family: "AxiaLight Regular";
+    &.section1 {
+      .row {
+        display: flex;
+        justify-content: flex-start;
+        .col {
+          float: none;
+          &:first-child {
+            img {
+              width: 100%;
+            }
+          }
+          &:last-child {
+            display: flex;
+            flex-flow: column;
+            justify-content: space-between;
+            align-items: center;
+            img {
+              display: block;
+              width: 200px;
+              margin: 0 auto;
+            }
+            .bottom-content {
+              p {
+                span:first-child {
+                  display: inline-block;
+                  width: 100px;
+                }
+              }
+            }
+          }
+        }
+      }
+
+    }
+    &.section2 {
+      font-family: "Axia Regular";
+      img {
+        width: 100%;
+        height: 100%;
+      }
+      .row {
+        margin-left: -8px;
+        margin-right: -8px;
+        display: flex;
+        .col {
+          float: none;
+          padding: 0 8px;
+          margin-top: 15px;
+          margin-bottom: 15px;
+          position: relative;
+          h2 {
+            position: absolute;
+            right: 28px;
+            top: 0;
+            color: #fff;
+          }
+        }
+      }
+      .img-wrapper {
+        position: relative;
+        h2 {
+          position: absolute;
+          right: 20px;
+          top: 0;
+          color: #fff;
+        }
+      }
+    }
+  }
+}
+
+body#design-penthouse {
+  .content-section {
+    font-family: "AxiaLight Regular";
+    .row {
+      display: flex;
+      .col:last-child {
+        display: flex;
+        text-align: right;
+        justify-content: flex-end;
+        flex-flow: column;
       }
     }
   }

@@ -27,7 +27,11 @@ require("flexslider");
 require("bootstrap");
 var utilFun = require("utilFun");
 $(document).ready(function () {
-    if ($("body").attr("id") === 'index') {
+    var bodyId = $("body").attr("id")
+    $(".navbar-nav li.active").removeClass("active");
+    $(".navbar-nav li." + bodyId + "-li").addClass("active");
+    $(".navbar-nav li." +bodyId + "-parent-li").addClass("active");
+    if (bodyId === 'index') {
         $('.flexslider').flexslider({
             fadeFirstSlide: false,
             controlNav: false,
