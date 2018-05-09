@@ -13,6 +13,7 @@
     "bootstrap-sass": "^3.3.5",
     "browserify": "^11.0.1",
     "browserify-shim": "^3.8.10",
+    "flexslider": "^2.5.0",
     "grunt": "^0.4.5",
     "grunt-browserify": "^4.0.0",
     "grunt-contrib-compass": "^1.0.3",
@@ -21,12 +22,15 @@
     "grunt-contrib-watch": "^0.6.1",
     "grunt-react": "^0.12.2",
     "holderjs": "^2.9.3",
+    "image-map-resizer": "^1.0.7",
     "jquery": "^2.1.4",
-    "flexslider": "^2.5.0"
+    "maphilight": "^1.4.0"
   },
   "browser": {
-    "jquery": "./node_modules/jquery/dist/jquery.min.js",
+    "jquery": "./node_modules/jquery/dist/jquery.js",
     "flexslider": "./node_modules/flexslider/jquery.flexslider-min.js",
+    "imageMapResizer": "./node_modules/image-map-resizer/js/imageMapResizer.js",
+    "maphilight": "./node_modules/maphilight/jquery.maphilight.js",
     "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js",
     "utilFun": "./public/js/dev/self/utilFun.js"
   },

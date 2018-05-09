@@ -14,6 +14,26 @@ $navbar-default-link-disabled-bg: transparent !default;
 @import "../node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
 @import "font";
 
+.btn-more-info {
+  color: $brand-primary;
+  &:hover {
+    color: $link-hover-color;
+  }
+  padding: 2px 10px;
+  border: 1px solid;
+  border-radius: 0;
+}
+
+.btn-more-info1 {
+  color: #fff;
+  background: $link-hover-color;
+  padding: 2px 20px;
+  &:hover {
+    color: #fff;
+  }
+  border-radius: 0;
+}
+
 body {
   font-family: "Axia Regular";
   font-weight: normal;
@@ -450,6 +470,131 @@ body#design-penthouse {
         text-align: right;
         justify-content: flex-end;
         flex-flow: column;
+      }
+    }
+  }
+}
+
+body#contact {
+  .content-section {
+    font-family: "AxiaLight Regular";
+    div.row {
+      display: flex;
+      justify-content: center;
+      form#contact-form {
+        display: flex;
+        justify-content: flex-start;
+        flex-flow: column;
+        label {
+          margin: 10px 0;
+          display: flex;
+          align-items: center;
+          span {
+            display: inline-block;
+            width: 65px;
+          }
+          input, textarea {
+            width: 300px;
+          }
+          textarea {
+            height: 100px;
+          }
+        }
+      }
+    }
+
+  }
+}
+
+body#layouts {
+  .content-section {
+    .flat-1 {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      .general {
+        overflow: hidden;
+        width: 382px;
+        div.general-img {
+          margin: auto;
+          img.general-img {
+            width: auto;
+            margin-bottom: 20px;
+          }
+        }
+      }
+      .subwrapper {
+        position: relative;
+        .sub {
+          width: 0;
+          overflow: hidden;
+          display: none;
+          img.close-icon {
+            position: absolute;
+            right: 20px;
+            width: 30px;
+            top: 20px;
+            cursor: pointer;
+            display: none;
+            @media (max-width: $screen-sm) {
+              display: block;
+            }
+          }
+          .sub-img {
+            width: 100%;
+          }
+          .inner-top {
+            text-align: left;
+            img {
+              width: 100px;
+            }
+            span {
+              display: inline-block;
+              padding: 5px 15px;
+              background: $text-color;
+              color: #fff;
+              margin-left: 20px;
+            }
+          }
+
+        }
+      }
+    }
+    .modal {
+      display: none;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      left: 0;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      width: 100%;
+      height: 100%;
+      background: transparentize(#eee, .1);
+
+      img {
+        &.sub {
+          display: none;
+          height: 95%;
+        }
+        &.close-icon {
+          display: block;
+          position: absolute;
+          right: 20px;
+          height: 30px;
+          top: 20px;
+          cursor: pointer;
+        }
+        &.compass-icon {
+          display: block;
+          position: absolute;
+          left: 30px;
+          height: 100px;
+          top: 20px;
+          cursor: pointer;
+        }
       }
     }
   }
