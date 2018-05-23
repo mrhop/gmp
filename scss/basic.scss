@@ -615,6 +615,9 @@ body#design-type1, body#design-type2, body#design-type3 {
           margin: 8px;
           position: relative;
         }
+        @media (max-width: $screen-sm) {
+          display: block;
+        }
       }
     }
   }
