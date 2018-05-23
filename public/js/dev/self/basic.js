@@ -6,24 +6,85 @@ require("flexslider");
 require("imageMapResizer");
 require("maphilight");
 require("bootstrap");
+var Swiper = require("Swiper");
 var utilFun = require("utilFun");
+var currentScrollTop = 0
 $(document).ready(function () {
+    var scrollMonitor = require("scrollMonitor");
     var bodyId = $("body").attr("id")
     $(".navbar-nav li.active").removeClass("active");
     $(".navbar-nav li." + bodyId + "-li").addClass("active");
     $(".navbar-nav li." + bodyId + "-parent-li").addClass("active");
-    $('.flexslider').flexslider({
-        fadeFirstSlide: false,
-        controlNav: false,
-        directionNav: true,
-        animationSpeed: 1000,
-        slideshowSpeed: 4000,
-        slideshow: true,
-        animation: "slide",
-        prevText: "",
-        nextText: "",
-    });
-    if (bodyId === 'layouts') {
+    new Swiper('.top-slider .swiper-container', {
+        // Optional parameters
+        loop: true,
+        navigation: {
+            nextEl: '.swiper-button-next',
+            prevEl: '.swiper-button-prev',
+        }
+    })
+    document.addEventListener('scroll', function () {
+        $('.navbar.navbar-default').removeClass('in')
+        $('.navbar-toggle').addClass('collapsed')
+        $('.navbar-collapse').removeClass('in')
+        if (currentScrollTop > document.documentElement.scrollTop) {
+            $('.navbar.navbar-default').removeClass('navbar-scroll-down');
+        } else {
+            $('.navbar.navbar-default').css('overflow', 'hidden')
+            $('.navbar.navbar-default').addClass('navbar-scroll-down');
+        }
+        currentScrollTop = document.documentElement.scrollTop
+        if (currentScrollTop == 0) {
+            $('.navbar.navbar-default').css('position', 'relative')
+        } else {
+            $('.navbar.navbar-default').css('position', 'fixed')
+        }
+    })
+    $('.navbar-toggle').click(function () {
+        if ($(this).hasClass('collapsed')) {
+            $('.navbar.navbar-default').addClass('in')
+        } else {
+            $('.navbar-collapse').on('webkitAnimationEnd mozAnimationEnd msAnimationEnd oAnimationEnd animationEnd', function () {
+                if (!$(this).hasClass('collapsed')) {
+                    $('.navbar.navbar-default').removeClass('in')
+                }
+            })
+        }
+    })
+    $('.navbar.navbar-default').on('transitionend webkitTransitionEnd oTransitionEnd', function () {
+        if (!$('.navbar.navbar-default').hasClass('navbar-scroll-down')) {
+            $('.navbar.navbar-default').css('overflow', 'visible')
+        }
+    })
+    document.querySelectorAll('.content-section .section-title').forEach(function (element) {
+        var elementWatcher = scrollMonitor.create(element);
+        elementWatcher.exitViewport(function () {
+            element.classList.remove('fadeInDown');
+        });
+        elementWatcher.enterViewport(function () {
+            element.classList.add('fadeInDown');
+        });
+    })
+    if (bodyId === 'index') {
+        var element1 = document.querySelector('.content-section.animate1')
+        var elementWatcher1 = scrollMonitor.create(element1);
+        elementWatcher1.stateChange(function () {
+            $(element1.querySelector('.row .col')).toggleClass('fadeInLeft', this.isInViewport);
+            $(element1.querySelector('.row .col:last-child')).toggleClass('fadeInRight', this.isInViewport);
+        });
+        var element2 = document.querySelector('.content-section.animate2')
+        var elementWatcher2 = scrollMonitor.create(element2);
+        element2.querySelectorAll('.row .col').forEach(function (e, i, array) {
+            var delay = 300 * i
+            $(e).css('animation-delay', delay + 'ms')
+            $(e).css('-webkit-animation-delay', delay + 'ms')
+            elementWatcher2.stateChange(function () {
+                $(e).toggleClass('fadeInUp', this.isInViewport);
+            });
+        })
+
+
+    } else if (bodyId === 'layouts') {
         $('.general img.general-img').maphilight()
         var flagOpened = false
         var minWidth = 760
@@ -76,6 +137,31 @@ $(document).ready(function () {
             $('.content-section .modal img.sub').css('display', 'none')
             $('.content-section .modal img.' + e.currentTarget.id).css('display', 'block')
             e.preventDefault()
+        })
+    } else if (bodyId.indexOf('design-') >= 0) {
+        var swiperGallery = new Swiper('.mask.big-img .swiper-container', {
+            // Optional parameters
+            init: false,
+            loop: true,
+            navigation: {
+                nextEl: '.swiper-button-next',
+                prevEl: '.swiper-button-prev',
+            },
+            lazy: {
+                loadPrevNext: true,
+            },
+        })
+        $('.mask.big-img img.close-icon').click(function () {
+            $('.mask.big-img').hide()
+        })
+        $('.mask.big-img').click(function (e) {
+            if (!e.target.classList.contains('swiper-button-prev') && !e.target.classList.contains('swiper-button-next') && !e.target.classList.contains('slide-image'))
+                $('.mask.big-img').hide()
+        })
+        $('.content-section .mask').click(function (e) {
+            $('.mask.big-img').show()
+            swiperGallery.init()
+            swiperGallery.slideTo($(this).data('related'), 0)
         })
     }
 });
