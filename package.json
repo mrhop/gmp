@@ -16,10 +16,10 @@
     "browserify-shim": "^3.8.10",
     "flexslider": "^2.5.0",
     "grunt": "^0.4.5",
-    "grunt-browserify": "^4.0.0",
+    "grunt-browserify": "^5.3.0",
     "grunt-contrib-compass": "^1.0.3",
     "grunt-contrib-copy": "^0.8.1",
-    "grunt-contrib-uglify": "^0.9.2",
+    "grunt-contrib-uglify": "^3.3.0",
     "grunt-contrib-watch": "^0.6.1",
     "grunt-react": "^0.12.2",
     "grunt-sass": "^2.1.0",
@@ -36,8 +36,8 @@
     "imageMapResizer": "./node_modules/image-map-resizer/js/imageMapResizer.js",
     "maphilight": "./node_modules/maphilight/jquery.maphilight.js",
     "bootstrap": "./node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js",
-    "scrollMonitor": "./node_modules/scrollmonitor/index.js",
-    "Swiper": "./node_modules/swiper/dist/js/swiper.js",
+    "scrollMonitor": "./node_modules/scrollmonitor/scrollMonitor.js",
+    "Swiper": "./node_modules/swiper/dist/js/swiper.min.js",
     "utilFun": "./public/js/dev/self/utilFun.js"
   },
   "browserify-shim": "./public/js/dev/self/shims.js"

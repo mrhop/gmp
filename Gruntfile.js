@@ -24,41 +24,47 @@ module.exports = function (grunt) {
             }
         },
         'copy': {
-            once:{
-                files:[{
+            once: {
+                files: [{
                     expand: true,
                     flatten: true,
                     src: ['node_modules/bootstrap-sass/assets/fonts/bootstrap/*'],
                     dest: 'public/assets/fonts/bootstrap/',
                     filter: 'isFile'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: ['node_modules/bootstrap-sass/assets/javascripts/bootstrap.min.js'],
                     dest: 'public/js/dev/'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: ['node_modules/holderjs/holder.min.js'],
                     dest: 'public/js/dev/'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: ['node_modules/flexslider/flexslider.css'],
                     dest: 'public/css/flexslider/'
-                },{
+                }, {
                     expand: true,
                     flatten: true,
                     src: ['node_modules/flexslider/fonts/*'],
                     dest: 'public/css/flexslider/fonts/'
                 },]
-            },main: {
-                files:[
-                    {expand: true,cwd: 'public/', src: ['*.html'], dest: 'dest/', filter: 'isFile'},
-                    {expand: true,cwd: 'public/', src: ['assets/**'], dest: 'dest/'},
-                    {expand: true,cwd: 'public/',  src: ['js/basic.browserify.min.js'], dest: 'dest/', filter: 'isFile'},
-                    {expand: true,cwd: 'public/',  src: ['js/dev/holder.min.js'], dest: 'dest/', filter: 'isFile'},
-                    {expand: true,cwd: 'public/',  src: ['css/**'], dest: 'dest/', filter: 'isFile'}
+            }, main: {
+                files: [
+                    {expand: true, cwd: 'public/', src: ['*.html'], dest: 'dest/', filter: 'isFile'},
+                    {expand: true, cwd: 'public/', src: ['assets/**'], dest: 'dest/'},
+                    {
+                        expand: true,
+                        cwd: 'public/',
+                        src: ['js/basic.browserify.min.js'],
+                        dest: 'dest/',
+                        filter: 'isFile'
+                    },
+                    {expand: true, cwd: 'public/', src: ['js/dev/holder.min.js'], dest: 'dest/', filter: 'isFile'},
+                    {expand: true, cwd: 'public/', src: ['css/**'], dest: 'dest/', filter: 'isFile'}
                 ]
             }
         },
@@ -68,7 +74,7 @@ module.exports = function (grunt) {
                 src: ['public/js/dev/self/basic.js'],
                 dest: 'public/js/basic.browserify.js',
                 options: {
-                    transform: [ "browserify-shim"]
+                    transform: ["browserify-shim"]
                 }
             }
         },
@@ -98,5 +104,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');
     grunt.loadNpmTasks('grunt-contrib-watch');
     grunt.registerTask('build', "Builds the application.",
-        ['compass:prod', 'browserify:basic', 'uglify','copy:main']);
+        ['compass:prod', 'browserify:basic', 'uglify', 'copy:main']);
 }
