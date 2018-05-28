@@ -126,6 +126,11 @@ html {
 body {
   font-family: "Axia Regular";
   font-weight: normal;
+  > section.content-section {
+    &:nth-child(odd) {
+      background: #f1f1f2;
+    }
+  }
 }
 
 .container, .container-fluid {
@@ -485,10 +490,10 @@ body#location-photos, body#value-brands {
       .col {
         p {
           padding: 5px 0;
-          margin-bottom: 15px;
+          margin-bottom: 35px;
           text-align: center;
           color: #fff;
-          background: $text-color;
+          background: $gray-light;
         }
       }
     }
@@ -575,6 +580,7 @@ body#design-type1, body#design-type2, body#design-type3 {
             }
           }
           &:last-child {
+            background: #f1f1f2;
             display: flex;
             flex-flow: column;
             justify-content: space-between;
