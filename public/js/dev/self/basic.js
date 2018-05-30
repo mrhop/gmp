@@ -82,11 +82,30 @@ $(document).ready(function () {
             });
         })
 
-
     } else if (bodyId === 'layouts') {
         $('.general img.general-img').maphilight()
         var flagOpened = false
         var minWidth = 760
+        $('.general #mapGeneral area').mouseenter(function (e) {
+            var title = $(this).data('title')
+            var available = $(this).data('available')
+            var unavailable = $(this).data('unavailable')
+            var rooms = $(this).data('rooms')
+            $('.content-section .tool-tip').css({
+                top: (e.pageY - document.documentElement.scrollTop - 10),
+                left: (e.pageX - document.documentElement.scrollLeft + 20),
+                display: 'block'
+            }).html('<h5>' + title + '</h5><p>Available:&nbsp;' + available + '</p><p>Unavailable:&nbsp;<span style="text-decoration: line-through">' + unavailable + '</span></p>').addClass('fadeIn');
+        }).mousemove(function (e) {
+            $('.content-section .tool-tip').css({
+                top: (e.pageY - document.documentElement.scrollTop - 10),
+                left: (e.pageX - document.documentElement.scrollLeft + 20)
+            });
+        }).mouseleave(function (e) {
+            $('.content-section .tool-tip').css({
+                display: 'none'
+            }).removeClass('fadeIn');
+        })
         $('.general #mapGeneral area').click(function (e) {
             var curentTarget = $('.flat-1 .subwrapper .' + $(this).attr('id'))
             if ($(window).outerWidth() > minWidth) {
@@ -130,6 +149,25 @@ $(document).ready(function () {
         })
         $('.content-section .modal .close-icon').click(function () {
             $('.content-section .modal').css('display', 'none')
+        })
+        $('.content-section .subwrapper map area').mouseenter(function (e) {
+            var title = $(this).data('title')
+            var size = $(this).data('size')
+            var rooms = $(this).data('rooms')
+            $('.content-section .tool-tip').css({
+                top: (e.pageY - document.documentElement.scrollTop - 10),
+                left: (e.pageX - document.documentElement.scrollLeft + 20),
+                display: 'block'
+            }).html('<h5>' + title + '</h5><p>Size:&nbsp;' + size + '</p><p>Rooms:&nbsp;' + rooms + '</p>').addClass('fadeIn');
+        }).mousemove(function (e) {
+            $('.content-section .tool-tip').css({
+                top: (e.pageY - document.documentElement.scrollTop - 10),
+                left: (e.pageX - document.documentElement.scrollLeft + 20)
+            });
+        }).mouseleave(function (e) {
+            $('.content-section .tool-tip').css({
+                display: 'none'
+            }).removeClass('fadeIn');
         })
         $('.content-section .subwrapper map area').click(function (e) {
             $('.content-section .modal').css('display', 'flex')

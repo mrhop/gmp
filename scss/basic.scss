@@ -731,6 +731,26 @@ body#contact {
 
 body#layouts {
   .content-section {
+    .tool-tip {
+      display: none;
+      position: fixed;
+      background: $link-hover-color;
+      z-index: 1;
+      -webkit-animation-duration: 600ms;
+      animation-duration: 600ms;
+      -webkit-animation-fill-mode: both;
+      animation-fill-mode: both;
+      color: #fff;
+      border-radius: 3px;
+      padding: 5px 20px;
+      h5 {
+        font-size: 2rem;
+        font-weight: bold;
+      }
+      p {
+        margin-bottom: 5px;
+      }
+    }
     .flat-1 {
       display: flex;
       justify-content: center;
