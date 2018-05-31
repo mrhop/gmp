@@ -13647,6 +13647,11 @@ body#layouts .content-section .modal .container div.sub .row .col {
 }
 /* line 856, ../../scss/basic.scss */
 body#layouts .content-section .modal .container div.sub .row .col img {
-  width: 100%;
   height: 100%;
+}
+@media (max-width: 768px) {
+  /* line 846, ../../scss/basic.scss */
+  body#layouts .content-section .modal .container div.sub .row {
+    display: block;
+  }
 }
