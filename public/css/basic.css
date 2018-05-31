@@ -13509,10 +13509,9 @@ body#layouts .content-section .tool-tip {
   border-radius: 3px;
   padding: 5px 20px;
 }
-/* line 746, ../../scss/basic.scss */
+/* line 747, ../../scss/basic.scss */
 body#layouts .content-section .tool-tip h5 {
   font-size: 2rem;
-  font-weight: bold;
 }
 /* line 750, ../../scss/basic.scss */
 body#layouts .content-section .tool-tip p {
@@ -13598,12 +13597,7 @@ body#layouts .content-section .modal {
   height: 100%;
   background: rgba(0, 0, 0, 0.7);
 }
-/* line 821, ../../scss/basic.scss */
-body#layouts .content-section .modal img.sub {
-  display: none;
-  height: 95%;
-}
-/* line 825, ../../scss/basic.scss */
+/* line 819, ../../scss/basic.scss */
 body#layouts .content-section .modal img.close-icon {
   display: block;
   position: absolute;
@@ -13612,12 +13606,47 @@ body#layouts .content-section .modal img.close-icon {
   top: 20px;
   cursor: pointer;
 }
+/* line 827, ../../scss/basic.scss */
+body#layouts .content-section .modal .container {
+  background: #fff;
+  margin-top: 20px;
+  padding-top: 20px;
+  overflow-y: scroll;
+  position: relative;
+}
 /* line 833, ../../scss/basic.scss */
-body#layouts .content-section .modal img.compass-icon {
-  display: block;
+body#layouts .content-section .modal .container img.compass-icon {
   position: absolute;
-  left: 30px;
+  left: 20px;
+  display: block;
   height: 100px;
-  top: 20px;
-  cursor: pointer;
+}
+/* line 839, ../../scss/basic.scss */
+body#layouts .content-section .modal .container div.sub {
+  display: none;
+  margin: auto;
+  width: 90%;
+}
+/* line 843, ../../scss/basic.scss */
+body#layouts .content-section .modal .container div.sub img {
+  width: 100%;
+}
+/* line 846, ../../scss/basic.scss */
+body#layouts .content-section .modal .container div.sub .row {
+  display: flex;
+  margin-left: -4px;
+  margin-right: -4px;
+}
+/* line 850, ../../scss/basic.scss */
+body#layouts .content-section .modal .container div.sub .row .col {
+  float: none;
+  position: relative;
+  margin-bottom: 8px;
+  padding-left: 4px;
+  padding-right: 4px;
+}
+/* line 856, ../../scss/basic.scss */
+body#layouts .content-section .modal .container div.sub .row .col img {
+  width: 100%;
+  height: 100%;
 }

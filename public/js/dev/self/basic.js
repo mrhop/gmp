@@ -107,7 +107,7 @@ $(document).ready(function () {
             }).removeClass('fadeIn');
         })
         $('.general #mapGeneral area').click(function (e) {
-            var curentTarget = $('.flat-1 .subwrapper .' + $(this).attr('id'))
+            var curentTarget = $('.flat-1 .subwrapper .' + $(this).data('2d'))
             if ($(window).outerWidth() > minWidth) {
                 if (!flagOpened) {
                     curentTarget.css('display', 'block').css('transition', '400ms width linear').css('width', function () {
@@ -119,7 +119,7 @@ $(document).ready(function () {
                     flagOpened = true
                 } else {
                     $('.flat-1 .subwrapper .sub').css('display', 'none')
-                    $('.flat-1 .subwrapper .' + $(this).attr('id')).css('display', 'block').css('width', function () {
+                    $('.flat-1 .subwrapper .' + $(this).data('2d')).css('display', 'block').css('width', function () {
                         return $('.flat-1').width() - 382
                     })
                     curentTarget.find('.sub-img').maphilight()
@@ -127,7 +127,7 @@ $(document).ready(function () {
                 }
             } else {
                 $('.flat-1 .general').css('transition', '400ms width linear').css('width', 0)
-                $('.flat-1 .subwrapper .' + $(this).attr('id')).css('display', 'block').css('transition', '400ms width linear').css('width', function () {
+                $('.flat-1 .subwrapper .' + $(this).data('2d')).css('display', 'block').css('transition', '400ms width linear').css('width', function () {
                     return $('.flat-1').width()
                 }).on('webkitTransitionEnd oTransitionEnd transitionend msTransitionEnd', function () {
                     curentTarget.find('.sub-img').maphilight()
@@ -171,8 +171,9 @@ $(document).ready(function () {
         })
         $('.content-section .subwrapper map area').click(function (e) {
             $('.content-section .modal').css('display', 'flex')
-            $('.content-section .modal img.sub').css('display', 'none')
-            $('.content-section .modal img.' + e.currentTarget.id).css('display', 'block')
+            $('.content-section .modal .container')[0].scrollTop = 0
+            $('.content-section .modal div.sub').css('display', 'none')
+            $('.content-section .modal div.' + e.currentTarget.id).css('display', 'block')
             e.preventDefault()
         })
     } else if (bodyId.indexOf('design-') >= 0) {
