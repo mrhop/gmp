@@ -150,7 +150,7 @@ body {
   box-shadow: 1px 1px 10px #aaa;
   border-radius: 0;
   min-height: 0;
-  height: 99px;
+  height: 139px;
   @media (max-width: $screen-sm) {
     height: 90px;
   }
@@ -167,7 +167,7 @@ body {
         padding: 0;
         margin-left: 0px;
         img {
-          height: 50px;
+          height: 90px;
         }
       }
     }
@@ -403,9 +403,20 @@ body {
         display: flex;
         text-align: left;
         align-items: center;
+        margin-bottom: 10px;
         img {
           width: 25px;
           margin-right: 8px;
+        }
+      }
+    }
+    @media (min-width: $screen-sm) {
+      .row {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        .col {
+          width: auto;
         }
       }
     }

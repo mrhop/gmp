@@ -81,7 +81,16 @@ $(document).ready(function () {
                 $(e).toggleClass('fadeInUp', this.isInViewport);
             });
         })
-
+        if (window.location.hash && window.location.hash.indexOf('about-us') > -1) {
+            $('html, body').animate({
+                scrollTop: $("section.content-section.about-us").offset().top - 139
+            }, 1000);
+        }
+        $('nav.navbar-default ul li.about-li').on('click', function () {
+            $('html, body').animate({
+                scrollTop: $("section.content-section.about-us").offset().top - 139
+            }, 1000);
+        });
     } else if (bodyId === 'layouts') {
         $('.general img.general-img').maphilight()
         var flagOpened = false
