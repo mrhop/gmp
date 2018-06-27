@@ -252,6 +252,8 @@ body {
   .swiper-container {
     width: 100%;
     .swiper-wrapper {
+      padding-left: 0;
+      list-style: none;
       .swiper-slide {
         position: relative;
         text-align: center;
