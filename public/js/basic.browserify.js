@@ -10476,8 +10476,8 @@ $(document).ready(function () {
         if($("body").hasClass("layout-mg")){
             availableLabel = 'Захиалах боломжтой:'
             unavailableLabel = 'Захиалах боломжгүй:'
-            sizeLabel =  'Size:'
-            roomsLabel =  'Rooms:'
+            sizeLabel =  'Талбайн хэмжээ:'
+            roomsLabel =  'Өрөөний тоо:'
         }
         $('.general #mapGeneral area').mouseenter(function (e) {
             var title = $(this).data('title')
