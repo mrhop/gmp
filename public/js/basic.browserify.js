@@ -10469,6 +10469,16 @@ $(document).ready(function () {
         $('.general img.general-img').maphilight()
         var flagOpened = false
         var minWidth = 760
+        var availableLabel =  'Available:'
+        var unavailableLabel =  'Unavailable:'
+        var sizeLabel =  'Size:'
+        var roomsLabel =  'Rooms:'
+        if($("body").hasClass("layout-mg")){
+            availableLabel = 'Захиалах боломжтой:'
+            unavailableLabel = 'Захиалах боломжгүй:'
+            sizeLabel =  'Size:'
+            roomsLabel =  'Rooms:'
+        }
         $('.general #mapGeneral area').mouseenter(function (e) {
             var title = $(this).data('title')
             var available = $(this).data('available')
@@ -10478,7 +10488,7 @@ $(document).ready(function () {
                 top: (e.pageY - document.documentElement.scrollTop - 10),
                 left: (e.pageX - document.documentElement.scrollLeft + 20),
                 display: 'block'
-            }).html('<h5>' + title + '</h5><p>Available:&nbsp;' + available + '</p><p>Unavailable:&nbsp;<span style="text-decoration: line-through">' + unavailable + '</span></p>').addClass('fadeIn');
+            }).html('<h5>' + title + '</h5><p>'+availableLabel+'&nbsp;' + available + '</p><p>'+unavailableLabel+'&nbsp;<span style="text-decoration: line-through">' + unavailable + '</span></p>').addClass('fadeIn');
         }).mousemove(function (e) {
             $('.content-section .tool-tip').css({
                 top: (e.pageY - document.documentElement.scrollTop - 10),
@@ -10541,7 +10551,7 @@ $(document).ready(function () {
                 top: (e.pageY - document.documentElement.scrollTop - 10),
                 left: (e.pageX - document.documentElement.scrollLeft + 20),
                 display: 'block'
-            }).html('<h5>' + title + '</h5><p>Size:&nbsp;' + size + '</p><p>Rooms:&nbsp;' + rooms + '</p>').addClass('fadeIn');
+            }).html('<h5>' + title + '</h5><p>'+sizeLabel+'&nbsp;' + size + '</p><p>'+roomsLabel+'&nbsp;' + rooms + '</p>').addClass('fadeIn');
         }).mousemove(function (e) {
             $('.content-section .tool-tip').css({
                 top: (e.pageY - document.documentElement.scrollTop - 10),
